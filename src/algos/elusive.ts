@@ -36,7 +36,7 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
 
 export class manager extends AlgoManager {
   public name: string = shortname
-  public did = 'did:plc:ywbm3iywnhzep3ckt6efhoh7'
+  public did = 'did:plc:db645kt5coo7teuoxdjhq34x'
   public follows: string[] = []
 
   public async periodicTask() {
