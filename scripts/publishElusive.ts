@@ -17,20 +17,20 @@ const run = async () => {
   // A short name for the record that will show in urls
   // Lowercase with no spaces.
   // Ex: whats-hot
-  const recordName = 'elusive'
+  const recordName = 'baddies'
 
   // A display name for your feed
   // Ex: What's Hot
-  const displayName = 'The Elusive Follows'
+  const displayName = 'Bluesky Baddies'
 
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
   const description =
-    'A highly curated list of people that share an elusive quality.'
+    'Media posts from the hottest accounts on Bluesky. (accounts followed by @blueskybaddies.com)'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
-  const avatar: string = 'images/elusive.png'
+  const avatar: string = ''
 
   // -------------------------------------
   // NO NEED TO TOUCH ANYTHING BELOW HERE
