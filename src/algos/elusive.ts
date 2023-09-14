@@ -9,7 +9,7 @@ import getUserFollows from '../addn/getUserFollows'
 dotenv.config()
 
 // max 15 chars
-export const shortname = 'elusive'
+export const shortname = 'baddies'
 
 export const handler = async (ctx: AppContext, params: QueryParams) => {
   const builder = await dbClient.getLatestPostsForTag(
