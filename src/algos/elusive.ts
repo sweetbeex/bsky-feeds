@@ -18,12 +18,18 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
     params.cursor,
   )
 
-  const feed = builder.map((row) => ({
+  const imagePosts = builder.filter((row) => {
+    // Assuming there's a property like "contentType" that indicates the content type
+    // You may need to adjust this condition based on your data model
+    return row.contentType === 'image';
+  });
+
+  const feed = imagePosts.map((row) => ({
     post: row.uri,
-  }))
+  }));
 
   let cursor: string | undefined
-  const last = builder.at(-1)
+  const last = imagePosts.at(-1)
   if (last) {
     cursor = `${new Date(last.indexedAt).getTime()}::${last.cid}`
   }
