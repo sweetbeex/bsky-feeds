@@ -57,12 +57,26 @@ export class manager extends AlgoManager {
     }
     if (this.agent === null) return false
 
+    let return_value: Boolean | undefined = undefined
+
+    let match = false
+
+    let matchString = ''
+
     if (post.embed?.images) {
       const imagesArr = post.embed.images
       imagesArr.forEach((image) => {
         matchString = `${matchString} ${image.alt}`.replace('\n', ' ')
       })
     }
+
+    matchString = `${post.text} ${matchString}`.replace('\n', ' ')
+
+    if (matchString.match(this.re) !== null) {
+      match = true
+    }
+
+    return match    
 
     return this.follows.includes(post.author)
   }
