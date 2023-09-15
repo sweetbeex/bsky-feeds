@@ -26,7 +26,7 @@ const run = async () => {
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
   const description =
-    'Media posts from the hottest accounts on Bluesky. (accounts followed by @blueskybaddies.com)'
+    'Posts from the hottest accounts on Bluesky. Contact @blueskybaddies.com to be added or removed. (Work in progress)'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
