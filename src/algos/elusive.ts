@@ -57,6 +57,13 @@ export class manager extends AlgoManager {
     }
     if (this.agent === null) return false
 
+    if (post.embed?.images) {
+      const imagesArr = post.embed.images
+      imagesArr.forEach((image) => {
+        matchString = `${matchString} ${image.alt}`.replace('\n', ' ')
+      })
+    }
+
     return this.follows.includes(post.author)
   }
 }
