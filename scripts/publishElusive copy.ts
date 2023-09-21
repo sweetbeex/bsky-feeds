@@ -17,16 +17,16 @@ const run = async () => {
   // A short name for the record that will show in urls
   // Lowercase with no spaces.
   // Ex: whats-hot
-  const recordName = 'baddies'
+  const recordName = 'baddiesimg'
 
   // A display name for your feed
   // Ex: What's Hot
-  const displayName = 'Bluesky Baddies'
+  const displayName = 'Baddies Gallery'
 
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
   const description =
-    'Posts from the hottest accounts on Bluesky (often NSFW). Contact @blueskybaddies.com to be added or removed. (Work in progress) Onlyfans/Fansly creators and other adult models/providers always welcome'
+    'Image posts from the hottest accounts on Bluesky (often NSFW). Contact @blueskybaddies.com to be added or removed. (Work in progress) Onlyfans/Fansly creators and other adult models/providers always welcome'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
