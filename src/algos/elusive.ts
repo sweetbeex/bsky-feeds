@@ -49,6 +49,15 @@ export class manager extends AlgoManager {
 
   public async filter_post(post: Post): Promise<Boolean> {
     if (post.replyRoot !== null) return false
+
+   // Check if the post's embed property contains images
+    if (post.embed?.images && post.embed.images.length > 0) {
+    return true; // Post contains images, include it
+    }
+
+    return false; // No images in the post or embed, exclude it
+    }
+
     // getUserFollows is memoised, so this should be fine
     this.follows = await getUserFollows(this.did, this.agent)
 
