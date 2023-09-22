@@ -5,7 +5,6 @@ import dotenv from 'dotenv'
 import { Post } from '../db/schema'
 import dbClient from '../db/dbClient'
 import getUserFollows from '../addn/getUserFollows'
-import { match } from 'assert'
 
 dotenv.config()
 
@@ -44,22 +43,26 @@ export class manager extends AlgoManager {
     this.follows = await getUserFollows(this.did, this.agent)
     await this.db.removeTagFromOldPosts(
       this.name,
-      new Date().getTime() - 3 * 24 * 60 * 60 * 1000, //3 days
+      new Date().getTime() - 3 * 24 * 60 * 60 * 1000, // 3 days
     )
   }
 
   public async filter_post(post: Post): Promise<Boolean> {
     if (post.replyRoot !== null) return false
 
-    // getUserFollows is memoised, so this should be fine
+    // getUserFollows is memoized, so this should be fine
     this.follows = await getUserFollows(this.did, this.agent)
 
     if (this.agent === null) {
       await this.start()
     }
     if (this.agent === null) return false
-    
-    return this.follows.includes(post.author)
 
+    // Check if the post has images
+    if (post.embed?.images && post.embed.images.length > 0) {
+      return true;
+    }
+
+    return false;
   }
 }
