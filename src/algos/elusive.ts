@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import { Post } from '../db/schema'
 import dbClient from '../db/dbClient'
 import getUserFollows from '../addn/getUserFollows'
+import { match } from 'assert'
 
 dotenv.config()
 
@@ -50,12 +51,9 @@ export class manager extends AlgoManager {
   public async filter_post(post: Post): Promise<Boolean> {
     if (post.replyRoot !== null) return false
 
-   // Check if the post's embed property contains images
-    if (post.embed?.images && post.embed.images.length > 0) {
-    return true; // Post contains images, include it
-    }
-
-    return false; // No images in the post or embed, exclude it
+    if (post.embed?.images) {
+      const imagesArr = post.embed.images
+    return match
     }
 
     // getUserFollows is memoised, so this should be fine
