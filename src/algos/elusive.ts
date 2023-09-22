@@ -51,11 +51,6 @@ export class manager extends AlgoManager {
   public async filter_post(post: Post): Promise<Boolean> {
     if (post.replyRoot !== null) return false
 
-    if (post.embed?.images) {
-      const imagesArr = post.embed.images
-    return match
-    }
-
     // getUserFollows is memoised, so this should be fine
     this.follows = await getUserFollows(this.did, this.agent)
 
