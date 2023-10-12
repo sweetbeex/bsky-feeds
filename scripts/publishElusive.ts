@@ -26,8 +26,7 @@ const run = async () => {
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
   const description =
-    'Posts from the hottest adult creators on Bluesky (often NSFW). Contact @blueskybaddies.com to be added or removed. 
-     Onlyfans/Fansly creators, adult models/providers, SWers, and sellers welcome. Please no cis men'
+    'Posts from the hottest adult creators on Bluesky (often NSFW). Contact @blueskybaddies.com to be added or removed. Onlyfans/Fansly creators, adult models/providers, SWers, and sellers welcome. Please no cis men'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
