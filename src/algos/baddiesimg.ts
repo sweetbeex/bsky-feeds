@@ -48,16 +48,22 @@ export class manager extends AlgoManager {
   }
 
   public async filter_post(post: Post): Promise<Boolean> {
-    if (post.replyRoot !== null) return false
+    if (post.replyRoot !== null) return false;
+
     // getUserFollows is memoised, so this should be fine
-    this.follows = await getUserFollows(this.did, this.agent)
+    this.follows = await getUserFollows(this.did, this.agent);
 
     if (this.agent === null) {
-      await this.start()
+      await this.start();
     }
-    if (this.agent === null) return false
-    
-    return this.follows.includes(post.author)
+    if (this.agent === null) return false;
 
+    // Check if the post author is in the list of follows
+    if (!this.follows.includes(post.author)) {
+      return false;
+    }
+
+    // Check if the post has any embedded images
+    return !!post.embed?.images && post.embed.images.length > 0;
   }
 }
